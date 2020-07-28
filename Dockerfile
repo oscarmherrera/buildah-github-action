@@ -1,4 +1,4 @@
-FROM buildah/buildah:v1.11.6
+FROM quay.io/buildah/stable:v1.11.6
 
 COPY LICENSE README.md /
 
