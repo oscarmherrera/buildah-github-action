@@ -21,9 +21,9 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.buildarglist }}
-    # - .
+  # args:
+  #   - ${{ inputs.buildarglist }}
+  #   # - .
         # - bud
         # - --storage-driver=overlay
         # - --format=oci
