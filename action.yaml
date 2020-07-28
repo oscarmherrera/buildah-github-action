@@ -29,8 +29,6 @@ runs:
     - "--layers"
     - "${{ inputs.envlist }}"
     - "${{ inputs.buildarglist }}"
-    - 'build-using-dockerfile'
-    - '--userns=host'
     - "--tag='${{ inputs.tag }}'"
     - "--file='${{ inputs.file }}'"
     - "."
