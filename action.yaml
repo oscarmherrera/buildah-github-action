@@ -27,7 +27,7 @@ runs:
     - --format=oci
     - --tls-verify=false
     - --layers"
-    - --tag='${{ inputs.tag }}'
-    - --file='${{ inputs.file }}'
+    - --tag=${{ inputs.tag }}
+    - --file=${{ inputs.file }}
     - ${{ inputs.buildarglist }}
     - .
