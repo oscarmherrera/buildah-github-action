@@ -1,0 +1,36 @@
+name: 'Buildah'
+description: 'Build ICO images using buildah build-using-dockerfile'
+author: 'Oscar M Herrera <oscar@kss-inc.com>'
+inputs:
+  tag:
+    description: >-
+      Specifies the name which will be assigned to the resulting image
+      if the build process completes successfully.
+    required: true
+  buildarglist:
+    description: >-
+      list of build args to pass to buildah
+    required: false
+  envlist:
+    description: >-
+      list of environment variables to pass to buildah
+    required: false
+  file:
+    description: Fully qualified Dockerfile with path to build.
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - "bud"
+    - "--storage-driver=overlay"
+    - "--format=oci"
+    - "--tls-verify=false"
+    - "--layers"
+    - "${{ inputs.envlist }}"
+    - "${{ inputs.buildarglist }}"
+    - 'build-using-dockerfile'
+    - '--userns=host'
+    - "--tag='${{ inputs.tag }}'"
+    - "--file='${{ inputs.file }}'"
+    - "."
