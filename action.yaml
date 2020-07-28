@@ -26,7 +26,7 @@ runs:
     - --storage-driver=overlay
     - --format=oci
     - --tls-verify=false
-    - --layers"
+    - --layers
     - --tag=${{ inputs.tag }}
     - --file=${{ inputs.file }}
     - ${{ inputs.buildarglist }}
